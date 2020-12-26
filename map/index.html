@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map</title>
+  <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./echarts.js"></script>
+  <script type="text/javascript" src="./pingdu.js"></script>
+</head>
+<body>
+  <div id="main" style="width: 800px; height:600px;"></div>
+  <script type="text/javascript">
+    const myChart = echarts.init(document.getElementById('main'));
+    echarts.registerMap('pingdu', data);
+    // 指定图表的配置项和数据
+    const option = {
+      series: [
+        {
+          name: 'pingdu map',
+          type: 'map',
+          roam: true,
+          map: 'pingdu',
+          emphasis: {
+            label: {
+              show: true
+            }
+          },
+          textFixed: {
+            Alaska: [20, -20]
+          },
+          data: [],
+        }
+      ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+  </script>
+</body>
+</html>
